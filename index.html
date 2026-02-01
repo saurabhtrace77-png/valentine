@@ -34,7 +34,7 @@
     }
 
     .card{
-      width:min(560px, 92vw);
+      width:min(620px, 92vw);
       background: rgba(255,255,255,0.95);
       border-radius: 24px;
       padding: 40px 30px;
@@ -49,7 +49,7 @@
       margin: 0 0 10px;
       color: #ff2e74;
       font-weight: 800;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
 
     .subtitle{
@@ -64,9 +64,10 @@
       gap:16px;
       justify-content:center;
       align-items:center;
-      margin-top: 8px;
+      margin-top: 10px;
       position:relative;
-      height: 56px;
+      height: 70px;
+      width: 100%;
     }
 
     .btn{
@@ -78,7 +79,6 @@
       transition: 0.15s ease;
       font-weight: 700;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      position: relative;
     }
 
     #yesBtn{
@@ -93,6 +93,9 @@
     #noBtn{
       background: linear-gradient(135deg, #ff4d4d, #e11d48);
       color:white;
+      position: absolute;
+      left: 50%;
+      transform: translateX(10px);
     }
   </style>
 </head>
@@ -100,7 +103,7 @@
 <body>
 
   <div class="card" id="card">
-    <h1 class="title">Will you be mine? 💖</h1>
+    <h1 class="title">Will you be mine? Muskan💖</h1>
     <p class="subtitle">(and only mine.. cutiepie 🫂😂)</p>
 
     <div class="btnRow" id="btnRow">
@@ -114,21 +117,22 @@
     const yesBtn = document.getElementById("yesBtn");
     const btnRow = document.getElementById("btnRow");
 
-    function moveNoSlightly() {
+    function moveNoButton() {
       const rowRect = btnRow.getBoundingClientRect();
-      const btnRect = noBtn.getBoundingClientRect();
 
-      const maxMoveX = Math.max(20, (rowRect.width - btnRect.width) / 2);
-      const maxMoveY = 10;
+      const padding = 10;
+      const maxX = rowRect.width - noBtn.offsetWidth - padding;
+      const maxY = rowRect.height - noBtn.offsetHeight - padding;
 
-      const randX = (Math.random() * maxMoveX) - (maxMoveX / 2);
-      const randY = (Math.random() * maxMoveY) - (maxMoveY / 2);
+      const randX = Math.floor(Math.random() * maxX);
+      const randY = Math.floor(Math.random() * maxY);
 
-      noBtn.style.transform = `translate(${randX}px, ${randY}px)`;
+      noBtn.style.left = randX + "px";
+      noBtn.style.top = randY + "px";
     }
 
-    noBtn.addEventListener("mouseenter", moveNoSlightly);
-    noBtn.addEventListener("touchstart", moveNoSlightly);
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", moveNoButton);
 
     yesBtn.addEventListener("click", () => {
       window.location.href = "yes.html";
