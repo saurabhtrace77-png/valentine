@@ -6,6 +6,8 @@
   <title>Yayyy 💖</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
     body{
       margin:0;
       height:100vh;
@@ -13,43 +15,66 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      font-family:Arial, sans-serif;
-      background:linear-gradient(135deg,#a1ffce,#faffd1);
+      font-family:Poppins, Arial, sans-serif;
+      background: linear-gradient(135deg, #a1ffce, #faffd1);
       text-align:center;
       padding:20px;
     }
 
     .card{
-      background:rgba(255,255,255,0.95);
-      padding:28px;
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.25);
-      max-width:360px;
-      width:100%;
-      z-index:10;
+      background: rgba(255,255,255,0.95);
+      padding: 26px;
+      border-radius: 22px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+      max-width: 380px;
+      width: 100%;
+      z-index: 10;
     }
 
     h1{
       margin:0;
       font-size:28px;
+      color:#111;
     }
 
     p{
-      font-size:18px;
-      margin:12px 0 18px;
+      font-size:17px;
+      margin:10px 0 14px;
+      color: rgba(0,0,0,0.7);
+      font-weight:600;
     }
 
     img{
       width:100%;
-      border-radius:16px;
-      margin-top:10px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.2);
+      border-radius: 18px;
+      margin-top: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     }
 
     .small{
-      font-size:14px;
-      opacity:0.8;
-      margin-top:12px;
+      font-size: 13px;
+      opacity: 0.75;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .musicBtn{
+      margin-top: 14px;
+      border:none;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff4d87, #ff2e74);
+      color: white;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      transition: 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .musicBtn:active{
+      transform: scale(0.98);
     }
 
     .confetti{
@@ -58,7 +83,7 @@
       height:10px;
       top:-10px;
       animation:fall 4s linear infinite;
-      opacity:0.8;
+      opacity:0.85;
     }
 
     @keyframes fall{
@@ -69,18 +94,43 @@
 </head>
 
 <body>
+
   <div class="card">
     <h1>Yayyyy 😍💖</h1>
     <p>You just made me the happiest 🥰</p>
-    <img src="myphoto.jpg" alt="My Photo" />
-    <div class="small">Now you can’t say no 😌😂</div>
 
-    <audio autoplay loop>
+    <img src="myphoto.jpg" alt="My Photo" />
+
+    <button class="musicBtn" id="musicBtn">Play Music 🎵</button>
+
+    <div class="small">Tap the button once for music 😄</div>
+
+    <audio id="bgMusic" loop>
       <source src="music.mp3" type="audio/mpeg">
     </audio>
   </div>
 
   <script>
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+    let playing = false;
+
+    btn.addEventListener("click", async () => {
+      try {
+        if (!playing) {
+          await music.play();
+          playing = true;
+          btn.textContent = "Pause Music ⏸️";
+        } else {
+          music.pause();
+          playing = false;
+          btn.textContent = "Play Music 🎵";
+        }
+      } catch (e) {
+        alert("Tap again 😄 (mobile blocks autoplay sometimes)");
+      }
+    });
+
     function createConfetti() {
       const confetti = document.createElement("div");
       confetti.className = "confetti";
@@ -95,5 +145,6 @@
 
     setInterval(createConfetti, 120);
   </script>
+
 </body>
 </html>
