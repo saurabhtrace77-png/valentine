@@ -6,7 +6,7 @@
   <title>Valentine?</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
     body{
       margin:0;
@@ -16,74 +16,69 @@
       justify-content:center;
       align-items:center;
       font-family:Poppins, Arial, sans-serif;
-      background: radial-gradient(circle at top left, #ffb3c7 0%, #ff6fa1 45%, #ff4d87 100%);
+      background: linear-gradient(135deg, #ff9ab6, #ff5f95);
     }
 
     .heart{
       position:absolute;
       font-size:22px;
       animation:floatUp 6s linear infinite;
-      opacity:0.9;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+      opacity:0.85;
       user-select:none;
       pointer-events:none;
     }
 
     @keyframes floatUp{
-      0%{transform:translateY(0) scale(1);opacity:1;}
-      100%{transform:translateY(-110vh) scale(1.2);opacity:0;}
+      0%{transform:translateY(0);opacity:1;}
+      100%{transform:translateY(-110vh);opacity:0;}
     }
 
     .card{
-      width:min(520px, 92vw);
-      background: rgba(255,255,255,0.92);
-      border-radius: 22px;
-      padding: 34px 28px;
+      width:min(560px, 92vw);
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      padding: 40px 30px;
       box-shadow: 0 18px 60px rgba(0,0,0,0.25);
       text-align:center;
       position:relative;
       z-index:5;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.35);
     }
 
     .title{
-      font-family: Pacifico, cursive;
-      font-size: 34px;
-      margin: 0 0 8px;
+      font-size: 44px;
+      margin: 0 0 10px;
       color: #ff2e74;
+      font-weight: 800;
       letter-spacing: 0.5px;
     }
 
     .subtitle{
-      margin: 0 0 22px;
-      font-size: 16px;
-      color: rgba(0,0,0,0.7);
-      font-weight: 500;
+      margin: 0 0 26px;
+      font-size: 18px;
+      color: rgba(0,0,0,0.65);
+      font-weight: 600;
     }
 
     .btnRow{
       display:flex;
-      gap:14px;
+      gap:16px;
       justify-content:center;
       align-items:center;
-      margin-top: 6px;
+      margin-top: 8px;
       position:relative;
+      height: 56px;
     }
 
     .btn{
       border:none;
-      padding: 12px 24px;
-      border-radius: 14px;
-      font-size: 18px;
+      padding: 14px 34px;
+      border-radius: 16px;
+      font-size: 20px;
       cursor:pointer;
-      transition: transform 0.15s ease;
+      transition: 0.15s ease;
       font-weight: 700;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .btn:active{
-      transform: scale(0.98);
+      position: relative;
     }
 
     #yesBtn{
@@ -98,28 +93,17 @@
     #noBtn{
       background: linear-gradient(135deg, #ff4d4d, #e11d48);
       color:white;
-      position: relative;
-    }
-
-    .glow{
-      position:absolute;
-      inset:-2px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-      pointer-events:none;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
-    <div class="glow"></div>
+  <div class="card" id="card">
+    <h1 class="title">Will you be mine? 💖</h1>
+    <p class="subtitle">(and only mine.. cutiepie 🫂😂)</p>
 
-    <h1 class="title">Will you be mine? Muskan madamji 💖</h1>
-    <p class="subtitle">(and only mine.. my Cutiepie 🫂😂)</p>
-
-    <div class="btnRow">
+    <div class="btnRow" id="btnRow">
       <button class="btn" id="yesBtn">Yes 😍</button>
       <button class="btn" id="noBtn">No 🥺</button>
     </div>
@@ -128,36 +112,23 @@
   <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
+    const btnRow = document.getElementById("btnRow");
 
-    function moveNoButton() {
-      const card = document.querySelector(".card");
-      const rect = card.getBoundingClientRect();
+    function moveNoSlightly() {
+      const rowRect = btnRow.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
 
-      const padding = 10;
+      const maxMoveX = Math.max(20, (rowRect.width - btnRect.width) / 2);
+      const maxMoveY = 10;
 
-      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+      const randX = (Math.random() * maxMoveX) - (maxMoveX / 2);
+      const randY = (Math.random() * maxMoveY) - (maxMoveY / 2);
 
-      let randX = Math.floor(Math.random() * maxX);
-      let randY = Math.floor(Math.random() * maxY);
-
-      const insideCardX = randX > rect.left - 20 && randX < rect.right;
-      const insideCardY = randY > rect.top - 20 && randY < rect.bottom;
-
-      if (insideCardX && insideCardY) {
-        randX = rect.left - 120;
-        randY = rect.top - 70;
-        if (randX < 10) randX = rect.right + 40;
-        if (randY < 10) randY = rect.bottom + 40;
-      }
-
-      noBtn.style.position = "absolute";
-      noBtn.style.left = randX + "px";
-      noBtn.style.top = randY + "px";
+      noBtn.style.transform = `translate(${randX}px, ${randY}px)`;
     }
 
-    noBtn.addEventListener("mouseenter", moveNoButton);
-    noBtn.addEventListener("touchstart", moveNoButton);
+    noBtn.addEventListener("mouseenter", moveNoSlightly);
+    noBtn.addEventListener("touchstart", moveNoSlightly);
 
     yesBtn.addEventListener("click", () => {
       window.location.href = "yes.html";
@@ -169,13 +140,13 @@
       heart.innerHTML = "💖";
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.top = "100vh";
-      heart.style.fontSize = (14 + Math.random() * 28) + "px";
+      heart.style.fontSize = (16 + Math.random() * 26) + "px";
       heart.style.animationDuration = (3 + Math.random() * 5) + "s";
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 8000);
     }
 
-    setInterval(createHeart, 250);
+    setInterval(createHeart, 280);
   </script>
 
 </body>
