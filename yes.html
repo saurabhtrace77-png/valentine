@@ -1,122 +1,99 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yayyy 💖</title>
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial, sans-serif;
+      background:linear-gradient(135deg,#a1ffce,#faffd1);
+      text-align:center;
+      padding:20px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.95);
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+      max-width:360px;
+      width:100%;
+      z-index:10;
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+    }
+
+    p{
+      font-size:18px;
+      margin:12px 0 18px;
+    }
+
+    img{
+      width:100%;
+      border-radius:16px;
+      margin-top:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .small{
+      font-size:14px;
+      opacity:0.8;
+      margin-top:12px;
+    }
+
+    .confetti{
+      position:absolute;
+      width:10px;
+      height:10px;
+      top:-10px;
+      animation:fall 4s linear infinite;
+      opacity:0.8;
+    }
+
+    @keyframes fall{
+      0%{transform:translateY(0) rotate(0deg);}
+      100%{transform:translateY(110vh) rotate(720deg);}
+    }
   </style>
 </head>
+
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Yayyy 💖&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #a1ffce, #faffd1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.95);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 30px rgba(0,0,0,0.25);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 360px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 10;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 12px 0 18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>img {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 6px 18px rgba(0,0,0,0.2);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.small {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Confetti */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.confetti {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: -10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: fall 4s linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes fall {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>0% { transform: translateY(0) rotate(0deg); }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>100% { transform: translateY(110vh) rotate(720deg); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Yayyyy 😍💖&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;You’re my favorite person forever 🥰&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ✅ Put your photo file name here --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="myphoto.jpg" alt="My Photo"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="small"&gt;Now you can’t take it back 😌😂&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ✅ Background music (put music file in folder) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio autoplay loop&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;source src="music.mp3" type="audio/mpeg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/audio&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Confetti effect</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function createConfetti() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const confetti = document.createElement("div");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>confetti.className = "confetti";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>confetti.style.left = Math.random() * 100 + "vw";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>confetti.style.animationDuration = (2 + Math.random() * 3) + "s";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>confetti.style.width = (6 + Math.random() * 10) + "px";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>confetti.style.height = confetti.style.width;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.body.appendChild(confetti);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; confetti.remove(), 5000);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>setInterval(createConfetti, 120);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="card">
+    <h1>Yayyyy 😍💖</h1>
+    <p>You just made me the happiest 🥰</p>
+    <img src="myphoto.jpg" alt="My Photo" />
+    <div class="small">Now you can’t say no 😌😂</div>
+
+    <audio autoplay loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = (2 + Math.random() * 3) + "s";
+      confetti.style.width = (6 + Math.random() * 10) + "px";
+      confetti.style.height = confetti.style.width;
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+
+    setInterval(createConfetti, 120);
+  </script>
 </body>
 </html>
